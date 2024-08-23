@@ -1,8 +1,10 @@
-import { View, Text,Image,StyleSheet } from 'react-native'
+import { View, Text,Image,StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import { Colors } from '@/constants/Colors'
+import { useRouter } from 'expo-router'
 const logo = require('@/assets/images/log.jpeg')
 export default function Login() {
+    const router = useRouter()
   return (
     <View>
      <Image source={logo} style={{ width:'100%', height:500}} />
@@ -14,11 +16,11 @@ export default function Login() {
 
         <Text style={{fontFamily:'outfit', marginTop:20, fontSize:17, textAlign:'center', color:'grey'}}>
         Discover your next adventure effortlessly. Personalized
-        itineraries at your fingertips. Travel smarter with Al-driven insights."
+        itineraries at your fingertips. Travel smarter with Al-driven insights.
         </Text>
-        <View style={styles.button}>
+        <Pressable onPress={()=>router.push('/auth/sign-in')} style={styles.button}>
             <Text style={{ color:"white", textAlign:"center", fontFamily:'outfit', fontSize:17}}>Sign In with google</Text>
-        </View>
+        </Pressable>
      </View>
     </View>
   )
